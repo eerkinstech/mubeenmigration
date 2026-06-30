@@ -1,0 +1,1145 @@
+body.mm-inner-page {
+    background: #fff
+}
+
+.mm-visa-main-grid,
+.mm-destination-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
+
+.mm-visa-main-grid article,
+.mm-destination-page-grid article,
+.mm-country-list-grid a,
+.mm-compact-visa-grid a {
+    display: block;
+    border: 1px solid #e5dfd2;
+    border-radius: 22px;
+    background: #fff;
+    text-decoration: none;
+    transition: .2s ease
+}
+
+.mm-visa-main-grid article {
+    padding: 30px
+}
+
+.mm-visa-main-grid article:hover,
+.mm-destination-page-grid article:hover,
+.mm-country-list-grid a:hover,
+.mm-compact-visa-grid a:hover {
+    transform: translateY(-4px);
+    border-color: #d4a84b;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .08)
+}
+
+.mm-visa-main-grid span,
+.mm-visa-badges span {
+    display: inline-flex;
+    margin-bottom: 16px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    color: #7b5712;
+    background: #fff5dc;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.mm-visa-main-grid h3,
+.mm-destination-page-grid h3 {
+    margin: 0 0 10px;
+    font-size: 23px
+}
+
+.mm-visa-main-grid p,
+.mm-destination-page-grid p {
+    color: #666;
+    font-size: 14px
+}
+
+.mm-visa-main-grid a,
+.mm-destination-page-grid a {
+    color: #8d6417;
+    font-size: 13px;
+    font-weight: 800
+}
+
+.mm-country-list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px
+}
+
+.mm-country-list-grid a {
+    padding: 24px;
+    color: #111
+}
+
+.mm-country-list-grid strong,
+.mm-country-list-grid span {
+    display: block
+}
+
+.mm-country-list-grid strong {
+    font-family: "Montserrat", sans-serif;
+    font-size: 21px
+}
+
+.mm-country-list-grid span {
+    margin-top: 8px;
+    color: #8d6417;
+    font-size: 13px;
+    font-weight: 800
+}
+
+.mm-destination-page-grid article {
+    overflow: hidden;
+    padding: 0 24px 26px
+}
+
+.mm-destination-page-grid img {
+    display: block;
+    width: calc(100% + 48px);
+    height: 180px;
+    margin: 0 -24px 24px;
+    object-fit: cover;
+    border-bottom: 4px solid #d4a84b
+}
+
+.mm-service-layout,
+.mm-destination-layout,
+.mm-visa-single-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 430px;
+    align-items: center;
+    gap: 60px
+}
+
+.mm-visa-single-layout {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) 360px
+}
+
+.mm-service-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 28px
+}
+
+.mm-service-facts div {
+    padding: 18px;
+    border: 1px solid #e5dfd2;
+    border-radius: 18px;
+    background: #fff
+}
+
+.mm-service-facts strong,
+.mm-service-facts span {
+    display: block
+}
+
+.mm-service-facts strong {
+    color: #111;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px
+}
+
+.mm-service-facts span {
+    color: #777;
+    font-size: 12px
+}
+
+.mm-visa-list-grid {
+    display: grid;
+    gap: 16px
+}
+
+.mm-visa-list-grid article {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e5dfd2;
+    border-radius: 22px;
+    background: #fff
+}
+
+.mm-visa-list-grid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 16px
+}
+
+.mm-visa-list-grid span,
+.mm-compact-visa-grid span {
+    color: #8d6417;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.mm-visa-list-grid h3 {
+    margin: 8px 0;
+    font-size: 22px
+}
+
+.mm-visa-list-grid p {
+    color: #666;
+    font-size: 14px
+}
+
+.mm-visa-list-grid a {
+    color: #8d6417;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none
+}
+
+.mm-destination-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px
+}
+
+.mm-destination-actions a {
+    padding: 9px 13px;
+    border: 1px solid #e5dfd2;
+    border-radius: 999px;
+    color: #6b4b10;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none
+}
+
+.mm-country-visa-groups {
+    display: grid;
+    gap: 34px
+}
+
+.mm-country-visa-groups section {
+    scroll-margin-top: 120px
+}
+
+.mm-country-visa-groups h3 {
+    margin: 0 0 16px;
+    font-size: 28px
+}
+
+.mm-compact-visa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px
+}
+
+.mm-compact-visa-grid a {
+    padding: 18px;
+    color: #111
+}
+
+.mm-compact-visa-grid strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px
+}
+
+.mm-visa-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px
+}
+
+.mm-visa-info-band {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 34px
+}
+
+.mm-visa-info-band div {
+    padding: 22px;
+    border: 1px solid #e5dfd2;
+    border-radius: 18px;
+    background: #fffaf0
+}
+
+.mm-visa-info-band b {
+    color: #111
+}
+
+.mm-visa-info-band p {
+    margin: 8px 0 0;
+    color: #666;
+    font-size: 13px
+}
+
+.mm-visa-category-index {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px
+}
+
+.mm-visa-category-index article {
+    padding: 28px;
+    border: 1px solid #e5dfd2;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .05)
+}
+
+.mm-visa-category-index h3 {
+    margin: 0 0 16px;
+    font-size: 21px
+}
+
+.mm-visa-category-index a {
+    display: block;
+    padding: 9px 0;
+    border-top: 1px solid #f0e9dc;
+    color: #5f4515;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.mm-visa-category-index a:hover {
+    color: #111
+}
+
+@media(max-width:1000px) {
+    .mm-visa-main-grid,
+    .mm-destination-page-grid,
+    .mm-compact-visa-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .mm-country-list-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .mm-service-layout,
+    .mm-destination-layout,
+    .mm-visa-single-layout {
+        grid-template-columns: 1fr;
+        gap: 38px
+    }
+
+    .mm-visa-category-index {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media(max-width:680px) {
+    .mm-visa-main-grid,
+    .mm-destination-page-grid,
+    .mm-country-list-grid,
+    .mm-compact-visa-grid,
+    .mm-service-facts,
+    .mm-visa-info-band {
+        grid-template-columns: 1fr
+    }
+
+    .mm-visa-list-grid article {
+        grid-template-columns: 1fr
+    }
+
+    .mm-visa-category-index {
+        grid-template-columns: 1fr
+    }
+}
+
+.mm-inner-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 430px;
+    align-items: center;
+    gap: 60px
+}
+
+.mm-hero-media {
+    position: relative;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid rgba(212, 168, 75, .32);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .07);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, .26)
+}
+
+.mm-hero-image,
+.mm-page-feature-image,
+.mm-index-grid article>img {
+    display: block;
+    width: 100%;
+    object-fit: cover
+}
+
+.mm-hero-image {
+    height: 330px;
+    border-radius: 20px
+}
+
+.mm-hero-media figcaption {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    left: 28px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(0, 0, 0, .62);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    backdrop-filter: blur(8px)
+}
+
+.mm-index-grid article {
+    overflow: hidden;
+    padding-top: 0
+}
+
+.mm-index-grid article>img {
+    height: 150px;
+    margin: 0 -28px 24px;
+    width: calc(100% + 56px);
+    border-radius: 20px 20px 0 0
+}
+
+.mm-content-image {
+    margin: 0 0 30px
+}
+
+.mm-page-feature-image {
+    height: 360px;
+    border-radius: 26px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, .12)
+}
+
+.mm-about-page-grid,
+.mm-process-visual-grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    align-items: center;
+    gap: 70px
+}
+
+.mm-about-page-grid figure,
+.mm-process-visual-grid figure {
+    margin: 0
+}
+
+.mm-about-page-grid figcaption {
+    margin-top: 12px;
+    color: #8a6a26;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.mm-about-page-grid h2,
+.mm-process-visual-grid h2 {
+    font-size: clamp(34px, 4vw, 52px)
+}
+
+.mm-about-page-grid p,
+.mm-process-visual-grid p {
+    color: #666
+}
+
+.mm-about-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 30px
+}
+
+.mm-about-metrics>div {
+    padding: 18px;
+    border: 1px solid #e5dfd2;
+    border-radius: 16px;
+    background: #fff
+}
+
+.mm-about-metrics strong,
+.mm-about-metrics span {
+    display: block
+}
+
+.mm-about-metrics strong {
+    color: #090909;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px
+}
+
+.mm-about-metrics span {
+    color: #777;
+    font-size: 12px
+}
+
+.mm-process-page {
+    max-width: 980px
+}
+
+.mm-process-timeline {
+    display: grid;
+    gap: 16px
+}
+
+.mm-process-timeline article {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid #e5dfd2;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, .05)
+}
+
+.mm-process-timeline b {
+    display: grid;
+    width: 56px;
+    height: 56px;
+    place-items: center;
+    border-radius: 18px;
+    color: #111;
+    background: #d4a84b;
+    font-family: "Montserrat", sans-serif
+}
+
+.mm-process-timeline h3 {
+    margin: 0 0 7px;
+    font-size: 23px
+}
+
+.mm-process-timeline p {
+    margin: 0;
+    color: #666
+}
+
+@media(max-width:1000px) {
+    .mm-inner-hero-grid,
+    .mm-about-page-grid,
+    .mm-process-visual-grid {
+        grid-template-columns: 1fr;
+        gap: 38px
+    }
+
+    .mm-hero-media {
+        max-width: 620px
+    }
+}
+
+@media(max-width:680px) {
+    .mm-hero-image,
+    .mm-page-feature-image {
+        height: 240px
+    }
+
+    .mm-about-metrics {
+        grid-template-columns: 1fr
+    }
+
+    .mm-process-timeline article {
+        grid-template-columns: 1fr;
+        gap: 14px
+    }
+}
+
+.mm-inner-hero {
+    position: relative;
+    padding: 92px 0 96px;
+    overflow: hidden;
+    color: #fff;
+    background: #090909
+}
+
+.mm-inner-hero:before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(212, 168, 75, .12) 1px, transparent 1px), linear-gradient(rgba(212, 168, 75, .08) 1px, transparent 1px);
+    background-size: 70px 70px;
+    content: "";
+    mask-image: linear-gradient(90deg, #000, transparent 70%)
+}
+
+.mm-inner-hero:after {
+    position: absolute;
+    top: -210px;
+    right: -100px;
+    width: 580px;
+    height: 580px;
+    border: 1px solid rgba(212, 168, 75, .28);
+    border-radius: 50%;
+    box-shadow: 0 0 0 65px rgba(212, 168, 75, .035), 0 0 0 130px rgba(212, 168, 75, .025);
+    content: ""
+}
+
+.mm-inner-hero .mm-wrap {
+    position: relative;
+    z-index: 2
+}
+
+.mm-breadcrumb {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 48px;
+    color: #aaa;
+    font-size: 12px
+}
+
+.mm-breadcrumb a {
+    color: #d4a84b;
+    text-decoration: none
+}
+
+.mm-inner-hero .mm-kicker {
+    color: #e5c36d
+}
+
+.mm-inner-hero h1 {
+    max-width: 900px;
+    margin: 0 0 24px;
+    color: #fff;
+    font-size: clamp(42px, 6vw, 74px);
+    line-height: 1.05
+}
+
+.mm-inner-hero p {
+    max-width: 720px;
+    margin: 0 0 32px;
+    color: #d1d1d1;
+    font-size: 18px
+}
+
+.mm-inner-section {
+    padding: 92px 0
+}
+
+.mm-content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 70px
+}
+
+.mm-main-copy>h2,
+.mm-contact-grid h2,
+.mm-prose h2 {
+    font-size: clamp(32px, 4vw, 50px)
+}
+
+.mm-main-copy>p,
+.mm-editor-content,
+.mm-prose p {
+    color: #666;
+    font-size: 16px
+}
+
+.mm-check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 38px
+}
+
+.mm-check-grid>div {
+    padding: 25px;
+    border: 1px solid #e6e0d4;
+    border-radius: 18px;
+    background: #fff
+}
+
+.mm-check-grid b {
+    color: #b88a2b;
+    font-size: 12px
+}
+
+.mm-check-grid h3 {
+    margin: 15px 0 7px;
+    font-size: 18px
+}
+
+.mm-check-grid p {
+    margin: 0;
+    color: #777;
+    font-size: 13px
+}
+
+.mm-side-card {
+    position: sticky;
+    top: 30px;
+    height: max-content;
+    padding: 34px;
+    border-radius: 22px;
+    color: #fff;
+    background: #0a0a0a;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, .13)
+}
+
+.mm-side-card>span,
+.mm-gold-panel>span {
+    color: #e5c36d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase
+}
+
+.mm-side-card h2 {
+    margin: 14px 0;
+    font-size: 28px
+}
+
+.mm-side-card p {
+    color: #bbb
+}
+
+.mm-side-card .mm-button {
+    width: 100%;
+    margin: 12px 0 25px
+}
+
+.mm-side-card hr {
+    border: 0;
+    border-top: 1px solid #333
+}
+
+.mm-side-card b,
+.mm-side-card small {
+    display: block
+}
+
+.mm-side-card small {
+    margin-top: 7px;
+    color: #999
+}
+
+.mm-index-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
+
+.mm-index-grid article {
+    min-height: 240px;
+    padding: 28px;
+    border: 1px solid #e5dfd2;
+    border-radius: 20px;
+    background: #fff;
+    transition: .2s
+}
+
+.mm-index-grid article:hover {
+    transform: translateY(-4px);
+    border-color: #d4a84b;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .08)
+}
+
+.mm-index-grid article>span {
+    color: #d4a84b;
+    font-size: 11px
+}
+
+.mm-index-grid h3 {
+    margin: 25px 0 10px;
+    font-size: 19px
+}
+
+.mm-index-grid p {
+    color: #777;
+    font-size: 13px
+}
+
+.mm-index-grid a {
+    color: #9a711f;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.mm-contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 60px
+}
+
+.mm-contact-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 30px
+}
+
+.mm-contact-list>a,
+.mm-contact-list>div {
+    display: flex;
+    padding: 19px 0;
+    border-bottom: 1px solid #e8e1d4;
+    justify-content: space-between;
+    gap: 20px;
+    color: #111;
+    text-decoration: none
+}
+
+.mm-contact-list span {
+    color: #666;
+    text-align: right
+}
+
+.mm-gold-panel {
+    padding: 42px;
+    border-radius: 24px;
+    background: #d4a84b
+}
+
+.mm-gold-panel>span {
+    color: #4e390d
+}
+
+.mm-gold-panel h3 {
+    margin: 15px 0 22px;
+    font-size: 32px
+}
+
+.mm-gold-panel li {
+    margin: 13px 0
+}
+
+.mm-prose {
+    max-width: 820px
+}
+
+.mm-prose h3 {
+    margin-top: 38px
+}
+
+.mm-inner-cta {
+    padding: 0 0 70px;
+    background: #fff
+}
+
+.mm-inner-cta>.mm-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 44px 50px;
+    border-radius: 24px;
+    background: #d4a84b
+}
+
+.mm-inner-cta span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase
+}
+
+.mm-inner-cta h2 {
+    margin: 8px 0 0;
+    font-size: clamp(27px, 4vw, 40px)
+}
+
+@media(max-width:900px) {
+    .mm-content-grid {
+        grid-template-columns: 1fr
+    }
+
+    .mm-side-card {
+        position: static
+    }
+
+    .mm-index-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .mm-contact-grid {
+        grid-template-columns: 1fr
+    }
+
+    .mm-inner-hero {
+        padding: 70px 0
+    }
+
+    .mm-breadcrumb {
+        margin-bottom: 35px
+    }
+}
+
+@media(max-width:680px) {
+    .mm-inner-section {
+        padding: 68px 0
+    }
+
+    .mm-index-grid,
+    .mm-check-grid {
+        grid-template-columns: 1fr
+    }
+
+    .mm-inner-cta>.mm-wrap {
+        padding: 34px 25px;
+        align-items: stretch;
+        flex-direction: column
+    }
+
+    .mm-inner-cta .mm-button {
+        width: 100%
+    }
+
+    .mm-inner-hero h1 {
+        font-size: 40px
+    }
+
+    .mm-inner-hero p {
+        font-size: 16px
+    }
+}
+
+.mm-route-section {
+    background: #f7f5f0
+}
+
+.mm-route-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px
+}
+
+.mm-route-grid article {
+    padding: 28px;
+    border: 1px solid #e5dfd2;
+    border-radius: 20px;
+    background: #fff
+}
+
+.mm-route-grid article>span,
+.mm-contact-highlight>span {
+    color: #a87518;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.mm-route-grid h3 {
+    margin: 16px 0 9px;
+    font-size: 19px
+}
+
+.mm-route-grid p {
+    margin: 0;
+    color: #6d6d6d;
+    font-size: 14px
+}
+
+.mm-visa-details {
+    padding-top: 76px;
+    padding-bottom: 76px
+}
+
+.mm-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 370px;
+    align-items: center;
+    gap: 70px
+}
+
+.mm-detail-grid>div>p {
+    color: #666
+}
+
+.mm-detail-grid ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 30px;
+    padding-left: 20px
+}
+
+.mm-detail-grid li {
+    color: #333
+}
+
+.mm-contact-highlight {
+    padding: 36px;
+    border-radius: 22px;
+    color: #fff;
+    background: #090909
+}
+
+.mm-contact-highlight h3 {
+    margin: 15px 0 22px;
+    color: #fff;
+    font-size: 27px
+}
+
+.mm-contact-highlight a {
+    display: block;
+    margin: 10px 0;
+    color: #e7c970;
+    font-weight: 700;
+    text-decoration: none
+}
+
+.mm-contact-highlight p {
+    margin: 24px 0 0;
+    color: #bbb
+}
+
+.mm-form-section {
+    background: #f7f5f0
+}
+
+.mm-form-layout {
+    display: grid;
+    grid-template-columns: .72fr 1.28fr;
+    gap: 70px
+}
+
+.mm-form-layout>div:first-child {
+    padding-top: 18px
+}
+
+.mm-form-layout h2 {
+    font-size: clamp(32px, 4vw, 48px)
+}
+
+.mm-form-layout>div:first-child p {
+    color: #666
+}
+
+.mm-appointment-form {
+    position: relative;
+    padding: 35px;
+    border: 1px solid #e5dfd2;
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .07)
+}
+
+.mm-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 24px
+}
+
+.mm-form-grid label {
+    display: grid;
+    gap: 7px;
+    color: #222;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.mm-form-grid label>span {
+    color: #a87518
+}
+
+.mm-form-grid input,
+.mm-form-grid textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #d9d2c5;
+    border-radius: 10px;
+    color: #171717;
+    background: #fff;
+    font: 400 15px/1.4 "Figtree", sans-serif
+}
+
+.mm-form-grid textarea {
+    resize: vertical
+}
+
+.mm-form-grid input:focus,
+.mm-form-grid textarea:focus {
+    border-color: #b88a2b;
+    outline: 3px solid rgba(212, 168, 75, .16)
+}
+
+.mm-form-wide {
+    grid-column: 1/-1
+}
+
+.mm-appointment-form button {
+    cursor: pointer
+}
+
+.mm-form-note {
+    margin: 16px 0 0;
+    color: #777;
+    font-size: 12px
+}
+
+.mm-form-note a {
+    color: #8b6318
+}
+
+.mm-form-notice {
+    margin-bottom: 16px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    font-size: 14px
+}
+
+.mm-form-success {
+    color: #245d34;
+    background: #e9f7ed
+}
+
+.mm-form-error {
+    color: #8a2b2b;
+    background: #fff0f0
+}
+
+.mm-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important
+}
+
+@media(max-width:1000px) {
+    .mm-route-grid {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .mm-detail-grid,
+    .mm-form-layout {
+        grid-template-columns: 1fr;
+        gap: 38px
+    }
+
+    .mm-contact-highlight {
+        max-width: 620px
+    }
+}
+
+@media(max-width:680px) {
+
+    .mm-route-grid,
+    .mm-detail-grid ul,
+    .mm-form-grid {
+        grid-template-columns: 1fr
+    }
+
+    .mm-form-wide {
+        grid-column: auto
+    }
+
+    .mm-appointment-form {
+        padding: 24px 18px
+    }
+
+    .mm-route-grid article {
+        padding: 23px
+    }
+}
