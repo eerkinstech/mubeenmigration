@@ -248,14 +248,6 @@ function mm_home_icon(string $name): string
             </div>
         </section>
 
-        <section class="mm-cta">
-            <div class="mm-wrap">
-                <div class="mm-cta-box">
-                    <div><span class="mm-kicker">Ready when you are</span><h2>Start with a clear conversation about your plans.</h2><p>Tell us where you want to go and what you want to achieve.</p></div>
-                    <a class="mm-button mm-button-dark" href="<?php echo esc_url($phone_url); ?>">Call <?php echo esc_html($phone_display); ?></a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <?php mm_render_global_footer($phone_url, $email); ?>

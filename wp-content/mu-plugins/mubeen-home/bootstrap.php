@@ -545,8 +545,9 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
                         </div>
                     </div>
                     <a href="<?php echo esc_url(home_url('/faqs/')); ?>">FAQs</a>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact</a>
                 </div>
-                <div class="mm-nav-actions"><a class="mm-button mm-button-small" href="<?php echo esc_url(home_url('/contact-us/#appointment-form')); ?>">Book a consultation</a></div>
+                <div class="mm-nav-actions"><a class="mm-button mm-button-small" href="<?php echo esc_url($phone); ?>">Call now</a></div>
             </nav>
         </div>
     </header>
@@ -557,7 +558,7 @@ function mm_render_global_footer(string $phone = MM_PHONE_URL, string $email = M
 {
     $footer_logo = mm_media_by_filename('2-e1782887403428.png', 'Mubeen Migration');
     ?>
-    <section class="mm-inner-cta"><div class="mm-wrap"><div><span>Start with clarity</span><h2>Discuss your immigration plans with our team.</h2></div><a class="mm-button mm-button-dark" href="<?php echo esc_url(home_url('/appointment/')); ?>">Book an appointment</a></div></section>
+    <section class="mm-inner-cta"><div class="mm-wrap"><div><span>Speak with our team</span><h2>Call for clear guidance on your immigration plans.</h2></div><a class="mm-button mm-button-dark" href="<?php echo esc_url($phone); ?>">Call <?php echo esc_html(MM_PHONE_DISPLAY); ?></a></div></section>
     <footer class="mm-footer">
         <div class="mm-wrap">
             <div class="mm-footer-grid">
@@ -566,9 +567,9 @@ function mm_render_global_footer(string $phone = MM_PHONE_URL, string $email = M
                     <p>International visa and immigration guidance built around route clarity, relevant evidence and responsible preparation.</p>
                     <?php mm_render_social_links(); ?>
                 </div>
-                <div><h3>Immigration</h3><a href="<?php echo esc_url(home_url('/immigration/')); ?>">Immigration services</a><a href="<?php echo esc_url(home_url('/Visa/')); ?>">Visa categories</a><a href="<?php echo esc_url(home_url('/destination/')); ?>">Destinations</a><a href="<?php echo esc_url(home_url('/appointment/')); ?>">Book appointment</a></div>
-                <div><h3>Company</h3><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About us</a><a href="<?php echo esc_url(home_url('/our-team/')); ?>">Our team</a><a href="<?php echo esc_url(home_url('/work-process/')); ?>">Work process</a><a href="<?php echo esc_url(home_url('/blogs/')); ?>">Blogs</a></div>
-                <div><h3>Help & policies</h3><a href="<?php echo esc_url(home_url('/faqs/')); ?>">FAQs</a><a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact us</a><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy policy</a><a href="<?php echo esc_url(home_url('/return-refund/')); ?>">Return & refund</a></div>
+                <div><h3>Immigration</h3><a href="<?php echo esc_url(home_url('/immigration/')); ?>">Immigration services</a><a href="<?php echo esc_url(home_url('/Visa/visit-visa/')); ?>">Visit visas</a><a href="<?php echo esc_url(home_url('/Visa/study-visa/')); ?>">Study visas</a><a href="<?php echo esc_url(home_url('/Visa/worker-visa/')); ?>">Work visas</a><a href="<?php echo esc_url(home_url('/Visa/family-settlement-visas/')); ?>">Family visas</a><a href="<?php echo esc_url(home_url('/Visa/')); ?>">All visa categories</a></div>
+                <div><h3>Company</h3><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About us</a><a href="<?php echo esc_url(home_url('/our-team/')); ?>">Our team</a><a href="<?php echo esc_url(home_url('/work-process/')); ?>">Work process</a><a href="<?php echo esc_url(home_url('/blogs/')); ?>">Blogs</a><a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact us</a></div>
+                <div><h3>Explore & help</h3><a href="<?php echo esc_url(home_url('/destination/')); ?>">All destinations</a><a href="<?php echo esc_url(home_url('/faqs/')); ?>">FAQs</a><a href="<?php echo esc_url(home_url('/appointment/')); ?>">Appointment</a><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy policy</a><a href="<?php echo esc_url(home_url('/return-refund/')); ?>">Return & refund</a></div>
                 <div class="mm-footer-contact"><h3>Contact</h3><a href="<?php echo esc_url($phone); ?>"><?php echo esc_html(MM_PHONE_DISPLAY); ?></a><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a><p>Online consultations worldwide<br>4th Floor, 51 CCA, DHA Phase 5, Lahore</p></div>
             </div>
             <div class="mm-footer-bottom"><span>&copy; <?php echo esc_html(wp_date('Y')); ?> Mubeen Migration. All rights reserved.</span><span>Visa decisions are made by the relevant authorities.</span></div>
