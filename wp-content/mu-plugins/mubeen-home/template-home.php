@@ -172,6 +172,34 @@ function mm_home_icon(string $name): string
             </div>
         </section>
 
+        <section class="mm-section mm-home-company" aria-labelledby="mm-home-company-title">
+            <div class="mm-wrap">
+                <div class="mm-home-company-intro">
+                    <span class="mm-kicker">Who we are</span>
+                    <h2 id="mm-home-company-title">Mubeen Migration: professional guidance for important international decisions</h2>
+                    <p>Mubeen Migration provides professional visa and immigration consultancy services for individuals, families, students, and skilled professionals in Pakistan. Our experienced team offers clear guidance for study visas, visit visas, work permits, family visas, and immigration pathways for the UK, Canada, Australia, USA, Europe, and New Zealand. At Mubeen Migration, we focus on accurate documentation, transparent advice, and step by step support to help clients prepare strong applications with confidence. Whether you need student visa assistance, business visa guidance, or reliable immigration consultants in Lahore, Mubeen Migration delivers trusted support designed to make your visa journey smooth, simple, and successful.</p>
+                </div>
+                <div class="mm-home-company-grid">
+                    <article>
+                        <span>About Mubeen Migration</span>
+                        <h3>Clear direction from the first conversation</h3>
+                        <p>Mubeen Migration is an immigration consultancy supporting clients in Lahore, throughout Pakistan and internationally through office, telephone and online consultations. We begin by understanding the destination, purpose, personal background and timing before discussing a suitable route.</p>
+                        <p>Our work covers visa-category guidance, eligibility direction, document planning, application preparation and consistency reviews. We explain what information is relevant, what requires further evidence and where official rules or individual circumstances may affect the next step.</p>
+                    </article>
+                    <article class="mm-home-company-focus">
+                        <span>What clients can expect</span>
+                        <ul>
+                            <li><b>Personal route review</b><small>Guidance shaped around your destination and genuine objective.</small></li>
+                            <li><b>Organised documentation</b><small>A focused evidence plan that connects documents to application requirements.</small></li>
+                            <li><b>Transparent communication</b><small>Clear explanations about preparation, limitations and practical next steps.</small></li>
+                            <li><b>International access</b><small>Consultations for clients in Pakistan and overseas.</small></li>
+                        </ul>
+                        <a class="mm-button mm-button-dark" href="<?php echo esc_url(home_url('/about-us/')); ?>">Learn more about us</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="mm-section mm-section-dark" id="process">
             <div class="mm-wrap">
                 <div class="mm-section-heading">
