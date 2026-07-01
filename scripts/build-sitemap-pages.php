@@ -9,7 +9,10 @@ if (PHP_SAPI !== 'cli') {
 }
 
 define('MUBEEN_BUILD_MODE', true);
-defined('DB_HOST') || define('DB_HOST', '127.0.0.1:10005');
+$db_host_override = getenv('MUBEEN_DB_HOST');
+if ($db_host_override && !defined('DB_HOST')) {
+    define('DB_HOST', $db_host_override);
+}
 require dirname(__DIR__) . '/wp-load.php';
 
 function mm_build_title(string $slug): string
