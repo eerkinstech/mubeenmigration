@@ -119,6 +119,40 @@ function mm_media_by_filename(string $filename, string $fallback_alt = ''): arra
     ];
 }
 
+function mm_render_frontend_site_icon(): void
+{
+    $icon_id = (int) get_option('site_icon');
+    $version = $icon_id > 0 ? (string) get_post_modified_time('U', true, $icon_id) : '1';
+    $fallback = null;
+    $icon_url = static function (int $size) use ($icon_id, $version, &$fallback): string {
+        $url = $icon_id > 0 ? get_site_icon_url($size, '') : '';
+        if (!$url) {
+            $fallback ??= mm_media_by_filename('2-e1782887403428.png', 'Mubeen Migration');
+            $url = (string) ($fallback['url'] ?? '');
+        }
+        return $url ? add_query_arg('mm-icon', $version, $url) : '';
+    };
+
+    $icon_32 = $icon_url(32);
+    $icon_192 = $icon_url(192);
+    $icon_180 = $icon_url(180);
+    $icon_270 = $icon_url(270);
+    if (!$icon_32) {
+        return;
+    }
+
+    printf("\n<link rel=\"icon\" href=\"%s\" sizes=\"32x32\">", esc_url($icon_32));
+    printf("\n<link rel=\"shortcut icon\" href=\"%s\">", esc_url($icon_32));
+    printf("\n<link rel=\"icon\" href=\"%s\" sizes=\"192x192\">", esc_url($icon_192));
+    printf("\n<link rel=\"apple-touch-icon\" href=\"%s\">", esc_url($icon_180));
+    printf("\n<meta name=\"msapplication-TileImage\" content=\"%s\">\n", esc_url($icon_270));
+}
+
+add_action('wp', static function (): void {
+    remove_action('wp_head', 'wp_site_icon', 99);
+});
+add_action('wp_head', 'mm_render_frontend_site_icon', 1);
+
 function mm_page_content_catalog(): array
 {
     static $catalog = null;
