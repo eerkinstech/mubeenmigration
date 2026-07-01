@@ -955,9 +955,11 @@ body.mm-menu-open {
 }
 
 .mm-country strong {
+  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 17px;
   text-shadow: 0 2px 10px #000, 0 1px 3px #000;
+  transition: color .2s ease;
 }
 
 .mm-country small {
@@ -968,8 +970,19 @@ body.mm-menu-open {
 }
 
 .mm-country:hover {
+  color: #fff;
   transform: translateY(-5px);
   border-color: var(--mm-gold);
+}
+
+.mm-country:visited {
+  color: #fff;
+}
+
+.mm-country:hover strong,
+.mm-country:focus-visible strong,
+.mm-country:active strong {
+  color: var(--mm-gold) !important;
 }
 
 .mm-about-grid {
