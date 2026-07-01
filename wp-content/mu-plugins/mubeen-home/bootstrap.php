@@ -55,6 +55,107 @@ function mm_media_url(string $file): string
     return content_url('/uploads/2026/06/' . ltrim($file, '/'));
 }
 
+function mm_media_by_filename(string $filename, string $fallback_alt = ''): array
+{
+    $filename = wp_basename($filename);
+    foreach (mm_media_candidates() as $image) {
+        if (wp_basename((string) $image['file']) === $filename) {
+            return $image;
+        }
+    }
+
+    $matches = get_posts([
+        'post_type' => 'attachment',
+        'post_status' => 'inherit',
+        'post_mime_type' => 'image',
+        'posts_per_page' => 1,
+        'fields' => 'ids',
+        'no_found_rows' => true,
+        'meta_query' => [[
+            'key' => '_wp_attached_file',
+            'value' => $filename,
+            'compare' => 'LIKE',
+        ]],
+    ]);
+    if ($matches) {
+        $id = (int) $matches[0];
+        $url = wp_get_attachment_image_url($id, 'large') ?: wp_get_attachment_url($id);
+        if ($url) {
+            return [
+                'id' => $id,
+                'url' => $url,
+                'title' => get_the_title($id),
+                'alt' => (string) get_post_meta($id, '_wp_attachment_image_alt', true) ?: $fallback_alt,
+                'file' => (string) get_post_meta($id, '_wp_attached_file', true),
+                'search' => mm_normalize_text($filename . ' ' . $fallback_alt),
+            ];
+        }
+    }
+
+    $uploads = wp_upload_dir();
+    return [
+        'id' => 0,
+        'url' => trailingslashit((string) $uploads['baseurl']) . rawurlencode($filename),
+        'title' => $fallback_alt,
+        'alt' => $fallback_alt,
+        'file' => $filename,
+        'search' => mm_normalize_text($filename . ' ' . $fallback_alt),
+    ];
+}
+
+function mm_page_content_catalog(): array
+{
+    static $catalog = null;
+    if (null !== $catalog) {
+        return $catalog;
+    }
+
+    $file = __DIR__ . '/content/pages.json';
+    $decoded = is_readable($file) ? json_decode((string) file_get_contents($file), true) : [];
+    $catalog = is_array($decoded) ? $decoded : [];
+    return $catalog;
+}
+
+function mm_page_content(string $slug = ''): array
+{
+    $slug = $slug ?: (string) get_post_field('post_name');
+    $catalog = mm_page_content_catalog();
+    return isset($catalog[$slug]) && is_array($catalog[$slug]) ? $catalog[$slug] : [];
+}
+
+add_action('init', static function (): void {
+    $version = '2026-07-01-2';
+    if (get_option('mm_structured_pages_version') === $version) {
+        return;
+    }
+
+    foreach (mm_page_content_catalog() as $slug => $page) {
+        $existing = get_page_by_path($slug, OBJECT, 'page');
+        $title = sanitize_text_field((string) ($page['title'] ?? ucwords(str_replace('-', ' ', $slug))));
+        $excerpt = sanitize_text_field((string) ($page['meta_description'] ?? $page['intro'] ?? ''));
+        if ($existing instanceof WP_Post) {
+            $id = (int) $existing->ID;
+            wp_update_post(['ID' => $id, 'post_title' => $title, 'post_excerpt' => $excerpt]);
+        } else {
+            $id = (int) wp_insert_post([
+                'post_type' => 'page',
+                'post_status' => 'publish',
+                'post_name' => sanitize_title($slug),
+                'post_title' => $title,
+                'post_excerpt' => $excerpt,
+                'post_content' => '',
+                'comment_status' => 'closed',
+            ]);
+        }
+        if ($id > 0) {
+            update_post_meta($id, '_yoast_wpseo_title', sanitize_text_field((string) ($page['meta_title'] ?? '')));
+            update_post_meta($id, '_yoast_wpseo_metadesc', $excerpt);
+        }
+    }
+    update_option('mm_structured_pages_version', $version, false);
+    flush_rewrite_rules(false);
+}, 30);
+
 function mm_normalize_text(string $text): string
 {
     return strtolower(trim(preg_replace('/[^a-z0-9]+/i', ' ', $text) ?: ''));
@@ -417,8 +518,16 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>">About</a>
-                    <a href="<?php echo esc_url(home_url('/work-process/')); ?>">Process</a>
+                    <div class="mm-nav-item mm-has-menu">
+                        <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="mm-nav-link">Company</a>
+                        <div class="mm-dropdown-menu" aria-label="Company menu">
+                            <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><strong>About us</strong><small>Our approach and leadership</small></a>
+                            <a href="<?php echo esc_url(home_url('/our-team/')); ?>"><strong>Our team</strong><small>Meet the people behind the work</small></a>
+                            <a href="<?php echo esc_url(home_url('/immigration/')); ?>"><strong>Immigration</strong><small>International services and pathways</small></a>
+                            <a href="<?php echo esc_url(home_url('/work-process/')); ?>"><strong>Work process</strong><small>From consultation to readiness</small></a>
+                            <a href="<?php echo esc_url(home_url('/blogs/')); ?>"><strong>Blogs</strong><small>Visa guides and immigration insights</small></a>
+                        </div>
+                    </div>
                     <a href="<?php echo esc_url(home_url('/faqs/')); ?>">FAQs</a>
                 </div>
                 <div class="mm-nav-actions"><a class="mm-button mm-button-small" href="<?php echo esc_url(home_url('/contact-us/#appointment-form')); ?>">Book a consultation</a></div>
@@ -428,9 +537,33 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
     <?php
 }
 
+function mm_render_global_footer(string $phone = MM_PHONE_URL, string $email = MM_CONTACT_EMAIL): void
+{
+    $footer_logo = mm_media_by_filename('2-e1782887403428.png', 'Mubeen Migration');
+    ?>
+    <section class="mm-inner-cta"><div class="mm-wrap"><div><span>Start with clarity</span><h2>Discuss your immigration plans with our team.</h2></div><a class="mm-button mm-button-dark" href="<?php echo esc_url(home_url('/appointment/')); ?>">Book an appointment</a></div></section>
+    <footer class="mm-footer">
+        <div class="mm-wrap">
+            <div class="mm-footer-grid">
+                <div class="mm-footer-about">
+                    <a class="mm-footer-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Mubeen Migration home"><img src="<?php echo esc_url($footer_logo['url']); ?>" alt="<?php echo esc_attr($footer_logo['alt'] ?: 'Mubeen Migration'); ?>" loading="lazy"></a>
+                    <p>International visa and immigration guidance built around route clarity, relevant evidence and responsible preparation.</p>
+                    <?php mm_render_social_links(); ?>
+                </div>
+                <div><h3>Immigration</h3><a href="<?php echo esc_url(home_url('/immigration/')); ?>">Immigration services</a><a href="<?php echo esc_url(home_url('/Visa/')); ?>">Visa categories</a><a href="<?php echo esc_url(home_url('/destination/')); ?>">Destinations</a><a href="<?php echo esc_url(home_url('/appointment/')); ?>">Book appointment</a></div>
+                <div><h3>Company</h3><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About us</a><a href="<?php echo esc_url(home_url('/our-team/')); ?>">Our team</a><a href="<?php echo esc_url(home_url('/work-process/')); ?>">Work process</a><a href="<?php echo esc_url(home_url('/blogs/')); ?>">Blogs</a></div>
+                <div><h3>Help & policies</h3><a href="<?php echo esc_url(home_url('/faqs/')); ?>">FAQs</a><a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact us</a><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy policy</a><a href="<?php echo esc_url(home_url('/return-refund/')); ?>">Return & refund</a></div>
+                <div class="mm-footer-contact"><h3>Contact</h3><a href="<?php echo esc_url($phone); ?>"><?php echo esc_html(MM_PHONE_DISPLAY); ?></a><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a><p>Online consultations worldwide<br>4th Floor, 51 CCA, DHA Phase 5, Lahore</p></div>
+            </div>
+            <div class="mm-footer-bottom"><span>&copy; <?php echo esc_html(wp_date('Y')); ?> Mubeen Migration. All rights reserved.</span><span>Visa decisions are made by the relevant authorities.</span></div>
+        </div>
+    </footer>
+    <?php
+}
+
 function mm_is_coded_page(): bool
 {
-    return is_front_page() || is_page() || is_singular(['mm_service', 'mm_visa', 'mm_destination']) ||
+    return is_front_page() || is_page() || is_singular(['post', 'mm_service', 'mm_visa', 'mm_destination']) ||
         is_post_type_archive(['mm_service', 'mm_visa', 'mm_destination']);
 }
 
@@ -438,6 +571,18 @@ function mm_meta_description(): string
 {
     if (is_front_page()) {
         return 'International visa and immigration guidance for visit, study, work, family and business routes. Speak with Mubeen Migration about your plans.';
+    }
+
+    if (is_page()) {
+        $content = mm_page_content();
+        if (!empty($content['meta_description'])) {
+            return sanitize_text_field((string) $content['meta_description']);
+        }
+    }
+
+    if (is_singular('post')) {
+        $description = get_the_excerpt() ?: wp_trim_words(wp_strip_all_tags((string) get_post_field('post_content')), 28, '');
+        return $description ?: 'Read practical visa and immigration guidance from Mubeen Migration.';
     }
 
     $title = wp_strip_all_tags(is_post_type_archive() ? post_type_archive_title('', false) : get_the_title());
@@ -458,6 +603,12 @@ add_filter('pre_get_document_title', static function (string $title): string {
     if (is_front_page()) {
         return 'Mubeen Migration | International Visa & Immigration Guidance';
     }
+    if (is_page()) {
+        $content = mm_page_content();
+        if (!empty($content['meta_title'])) {
+            return sanitize_text_field((string) $content['meta_title']);
+        }
+    }
     $page_title = is_post_type_archive() ? post_type_archive_title('', false) : get_the_title();
     return ($page_title ?: 'Visa & Immigration Services') . ' | Mubeen Migration';
 }, 20);
@@ -466,6 +617,12 @@ function mm_meta_title(): string
 {
     if (is_front_page()) {
         return 'Mubeen Migration | International Visa & Immigration Guidance';
+    }
+    if (is_page()) {
+        $content = mm_page_content();
+        if (!empty($content['meta_title'])) {
+            return sanitize_text_field((string) $content['meta_title']);
+        }
     }
     $page_title = is_post_type_archive() ? post_type_archive_title('', false) : get_the_title();
     return ($page_title ?: 'Visa & Immigration Services') . ' | Mubeen Migration';
@@ -532,8 +689,28 @@ add_action('wp_head', static function (): void {
     printf("\n<meta property=\"og:title\" content=\"%s\">", esc_attr($title));
     printf("\n<meta property=\"og:description\" content=\"%s\">", esc_attr($description));
     printf("\n<meta property=\"og:url\" content=\"%s\">", esc_url((string) $canonical));
-    echo "\n<meta property=\"og:type\" content=\"website\">\n";
+    printf("\n<meta property=\"og:type\" content=\"%s\">\n", is_singular('post') ? 'article' : 'website');
 }, 2);
+
+add_action('wp_head', static function (): void {
+    if (!is_singular('post') || defined('WPSEO_VERSION')) {
+        return;
+    }
+    $image = get_the_post_thumbnail_url(get_queried_object_id(), 'full') ?: mm_page_image_url((string) get_post_field('post_name'), 'post');
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Article',
+        'headline' => get_the_title(),
+        'description' => mm_meta_description(),
+        'datePublished' => get_the_date(DATE_W3C),
+        'dateModified' => get_the_modified_date(DATE_W3C),
+        'image' => [$image],
+        'author' => ['@type' => 'Organization', 'name' => 'Mubeen Migration'],
+        'publisher' => ['@type' => 'Organization', 'name' => 'Mubeen Migration', 'url' => home_url('/')],
+        'mainEntityOfPage' => get_permalink(),
+    ];
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+}, 8);
 
 function mm_handle_appointment(): void
 {
@@ -618,11 +795,16 @@ add_filter('template_include', static function (string $template): string {
         return is_readable($site_template) ? $site_template : $template;
     }
 
+    if (is_singular('post')) {
+        $blog_template = __DIR__ . '/template-blog.php';
+        return is_readable($blog_template) ? $blog_template : $template;
+    }
+
     return $template;
 }, 99);
 
 add_action('wp_enqueue_scripts', static function (): void {
-    if (!(is_front_page() || is_page() || is_singular(['mm_service', 'mm_visa', 'mm_destination']) ||
+    if (!(is_front_page() || is_page() || is_singular(['post', 'mm_service', 'mm_visa', 'mm_destination']) ||
         is_post_type_archive(['mm_service', 'mm_visa', 'mm_destination']))) {
         return;
     }
@@ -646,7 +828,7 @@ add_action('wp_enqueue_scripts', static function (): void {
 }, 20);
 
 add_filter('body_class', static function (array $classes): array {
-    if (is_front_page() || is_page() || is_singular(['mm_service', 'mm_visa', 'mm_destination']) ||
+    if (is_front_page() || is_page() || is_singular(['post', 'mm_service', 'mm_visa', 'mm_destination']) ||
         is_post_type_archive(['mm_service', 'mm_visa', 'mm_destination'])) {
         $classes[] = 'mm-coded-home';
     }

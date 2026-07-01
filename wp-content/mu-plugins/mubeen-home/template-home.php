@@ -230,6 +230,8 @@ function mm_home_icon(string $name): string
         </section>
     </main>
 
+    <?php mm_render_global_footer($phone_url, $email); ?>
+    <?php if (false) : // Legacy footer retained temporarily; global footer is used above. ?>
     <footer class="mm-footer">
         <div class="mm-wrap">
             <div class="mm-footer-grid">
@@ -245,6 +247,7 @@ function mm_home_icon(string $name): string
             <div class="mm-footer-bottom"><span>© <?php echo esc_html(wp_date('Y')); ?> Mubeen Migration. All rights reserved.</span><span>Visa decisions are made by the relevant authorities.</span></div>
         </div>
     </footer>
+    <?php endif; ?>
     <a class="mm-mobile-call" href="<?php echo esc_url($phone_url); ?>">Call for consultation</a>
 </div>
 

@@ -1325,8 +1325,25 @@ body.mm-menu-open {
 
 .mm-footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr .7fr .65fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.35fr repeat(3, .72fr) 1fr;
+  gap: 34px;
+}
+
+.mm-footer-logo {
+  display: inline-flex;
+  max-width: 230px;
+  min-height: 68px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.mm-footer-logo img {
+  display: block;
+  width: 100%;
+  max-height: 70px;
+  object-fit: contain;
 }
 
 .mm-footer .mm-brand {
@@ -1402,6 +1419,14 @@ body.mm-menu-open {
 }
 
 @media (max-width: 1080px) {
+  .mm-footer-grid {
+    grid-template-columns: 1.25fr repeat(2, 1fr);
+  }
+
+  .mm-footer-contact {
+    grid-column: span 2;
+  }
+
   .mm-nav-main {
     gap: 18px;
   }

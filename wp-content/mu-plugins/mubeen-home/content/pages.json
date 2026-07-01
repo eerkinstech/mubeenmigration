@@ -1,0 +1,172 @@
+{
+  "about-us": {
+    "title": "About Mubeen Migration",
+    "eyebrow": "International guidance, personal preparation",
+    "intro": "Learn how Mubeen Migration supports individuals, families and businesses with responsible immigration guidance and organised application preparation.",
+    "meta_title": "About Mubeen Migration | International Immigration Guidance",
+    "meta_description": "Learn about Mubeen Migration, our responsible immigration approach and CEO Shahid Mubeen, supporting clients in Pakistan and worldwide."
+  },
+  "contact-us": {
+    "title": "Contact Mubeen Migration",
+    "eyebrow": "Connect with our team",
+    "intro": "Contact Mubeen Migration from Pakistan or overseas for an online, telephone or office immigration consultation.",
+    "meta_title": "Contact Mubeen Migration | Immigration Consultation",
+    "meta_description": "Contact Mubeen Migration for international visa and immigration guidance by phone, email, online consultation or at our Lahore office."
+  },
+  "work-process": {
+    "title": "Our Immigration Work Process",
+    "eyebrow": "A structured route to readiness",
+    "intro": "See how Mubeen Migration moves from initial consultation and route review to document planning and final application-readiness checks.",
+    "meta_title": "Our Immigration Work Process | Mubeen Migration",
+    "meta_description": "Understand the Mubeen Migration process for consultation, visa route assessment, document planning, application preparation and final review."
+  },
+  "privacy-policy": {
+    "title": "Privacy Policy",
+    "eyebrow": "Respecting your information",
+    "intro": "Understand how Mubeen Migration collects, uses and protects information shared through consultations, forms and professional services.",
+    "meta_title": "Privacy Policy | Mubeen Migration",
+    "meta_description": "Read how Mubeen Migration handles personal information submitted through immigration consultations, website forms and professional services."
+  },
+  "immigration": {
+    "title": "Immigration Services",
+    "eyebrow": "International immigration guidance",
+    "intro": "Explore structured immigration support for temporary visas, permanent residence, family routes, business mobility and citizenship planning.",
+    "meta_title": "Immigration Services & Visa Guidance | Mubeen Migration",
+    "meta_description": "International immigration guidance for visit, study, work, family, business, permanent residence and citizenship pathways with Mubeen Migration.",
+    "sections": [
+      {
+        "title": "Temporary immigration pathways",
+        "text": "Plan visits, study, temporary work and business travel around the correct purpose, evidence and destination requirements."
+      },
+      {
+        "title": "Permanent residence planning",
+        "text": "Compare skilled, employer-sponsored, regional, family and investment pathways where they are available."
+      },
+      {
+        "title": "Family and dependant routes",
+        "text": "Understand sponsorship, relationship evidence, dependant eligibility and settlement considerations."
+      },
+      {
+        "title": "Citizenship and status",
+        "text": "Prepare for eligible citizenship, nationality, passport and status-related applications after confirming the relevant rules."
+      }
+    ]
+  },
+  "our-team": {
+    "title": "Our Team",
+    "eyebrow": "People behind the preparation",
+    "intro": "Meet the leadership and consultation team focused on clear communication, responsible guidance and organised immigration preparation.",
+    "meta_title": "Our Immigration Team | Mubeen Migration",
+    "meta_description": "Meet Shahid Mubeen and the Mubeen Migration team providing responsible visa and immigration guidance to clients in Pakistan and worldwide.",
+    "leader": {
+      "name": "Shahid Mubeen",
+      "role": "Chief Executive Officer",
+      "image": "Shahid-Mubeen.jpeg",
+      "bio": "Shahid Mubeen leads Mubeen Migration with a client-first approach built around route clarity, careful document planning and realistic expectations. His focus is to make complex immigration processes easier to understand while maintaining responsible standards at every stage."
+    },
+    "values": [
+      {
+        "title": "Clear advice",
+        "text": "We explain options, limitations and next steps in direct language."
+      },
+      {
+        "title": "Case-focused planning",
+        "text": "Recommendations are organised around the applicant's circumstances and intended destination."
+      },
+      {
+        "title": "Responsible service",
+        "text": "We never promise decisions controlled by immigration authorities."
+      }
+    ]
+  },
+  "return-refund": {
+    "title": "Return & Refund Policy",
+    "eyebrow": "Service terms",
+    "intro": "Understand how consultation and professional-service payments are handled, including cancellation and refund-request procedures.",
+    "meta_title": "Return & Refund Policy | Mubeen Migration",
+    "meta_description": "Read the Mubeen Migration return, cancellation and refund policy for consultations and professional immigration services.",
+    "sections": [
+      {
+        "title": "Consultation bookings",
+        "text": "If you need to reschedule, contact us as early as possible. A booking may be moved subject to consultant availability and the terms confirmed at the time of payment."
+      },
+      {
+        "title": "Work already performed",
+        "text": "Fees covering a completed consultation, assessment, document review or other work already delivered are generally not refundable."
+      },
+      {
+        "title": "Services not yet started",
+        "text": "A written cancellation request for work that has not started will be reviewed against the signed service terms, payment method and any committed third-party costs."
+      },
+      {
+        "title": "Government and third-party fees",
+        "text": "Government charges, biometrics, medical, translation, courier and other third-party fees are governed by the relevant provider and are not controlled by Mubeen Migration."
+      },
+      {
+        "title": "How to request a review",
+        "text": "Email enquiries@mubeenmigration.com with your name, invoice or booking reference, payment date and reason for the request. We will review the service record and respond in writing."
+      }
+    ]
+  },
+  "appointment": {
+    "title": "Book an Appointment",
+    "eyebrow": "Start your consultation",
+    "intro": "Book a focused conversation about your destination, immigration objective, background and available documents from anywhere in the world.",
+    "meta_title": "Book an Immigration Consultation | Mubeen Migration",
+    "meta_description": "Request an online, phone or office immigration consultation with Mubeen Migration. Submit your appointment enquiry securely to our team.",
+    "steps": [
+      {
+        "title": "Share your objective",
+        "text": "Tell us the destination and whether your goal relates to visiting, study, work, family, business or settlement."
+      },
+      {
+        "title": "Provide useful context",
+        "text": "Mention important travel history, previous refusals, qualifications, employment or sponsor details."
+      },
+      {
+        "title": "Receive follow-up",
+        "text": "Our team will contact you about availability and the most appropriate consultation format."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "eyebrow": "Clear answers before you begin",
+    "intro": "Read practical answers about consultations, documents, refusals, international appointments and responsible visa preparation.",
+    "meta_title": "Visa & Immigration FAQs | Mubeen Migration",
+    "meta_description": "Answers to common visa and immigration questions about consultations, supporting documents, refusals, timelines and international client support.",
+    "items": [
+      {
+        "question": "Can Mubeen Migration guarantee visa approval?",
+        "answer": "No. Decisions are made only by the relevant immigration authority. Our role is to improve route clarity, organisation and application readiness."
+      },
+      {
+        "question": "What should I bring to a consultation?",
+        "answer": "Bring your passport, travel history, education or employment details, financial background and any previous refusal or immigration correspondence."
+      },
+      {
+        "question": "Can I book from outside Pakistan?",
+        "answer": "Yes. We support clients internationally through online and telephone consultations."
+      },
+      {
+        "question": "Can you review a previous refusal?",
+        "answer": "Yes. We can review the refusal reasons, submitted evidence and available next-step options. A review does not guarantee a different future outcome."
+      },
+      {
+        "question": "How long will my application take?",
+        "answer": "Processing times vary by authority, category, location and case circumstances. Published estimates can change and are not guarantees."
+      },
+      {
+        "question": "Do you help choose the correct visa category?",
+        "answer": "Yes. Route selection is a core part of the initial assessment because documents should only be prepared after the purpose and category are clear."
+      }
+    ]
+  },
+  "blogs": {
+    "title": "Immigration Insights",
+    "eyebrow": "Guides and updates",
+    "intro": "Read practical articles about visa preparation, documents, immigration pathways and responsible application planning.",
+    "meta_title": "Immigration Blog & Visa Guides | Mubeen Migration",
+    "meta_description": "Read Mubeen Migration articles about visas, immigration pathways, supporting documents, application preparation and international mobility."
+  }
+}
