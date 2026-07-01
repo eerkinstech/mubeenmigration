@@ -252,6 +252,10 @@ body.mm-menu-open {
   transform: rotate(45deg);
 }
 
+.mm-submenu-toggle {
+  display: none;
+}
+
 .mm-mega-menu,
 .mm-dropdown-menu {
   position: absolute;
@@ -1679,19 +1683,56 @@ body.mm-menu-open {
   }
 
   .mm-nav-item {
+    position: relative;
     display: block;
     min-height: 0;
   }
 
   .mm-nav-link {
     width: 100%;
-    justify-content: space-between;
+    padding-right: 52px;
+  }
+
+  .mm-nav-link::after {
+    display: none;
+  }
+
+  .mm-submenu-toggle {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    z-index: 2;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 10px;
+    color: var(--mm-gold-light);
+    background: rgba(255, 255, 255, .06);
+    cursor: pointer;
+  }
+
+  .mm-submenu-toggle>span:first-child {
+    width: 9px;
+    height: 9px;
+    margin-top: -4px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .2s ease, margin .2s ease;
+  }
+
+  .mm-submenu-toggle[aria-expanded="true"]>span:first-child {
+    margin-top: 4px;
+    transform: rotate(225deg);
   }
 
   .mm-mega-menu,
   .mm-dropdown-menu {
     position: static;
-    display: grid;
+    display: none;
     width: auto;
     margin: 8px 0 18px;
     padding: 14px;
@@ -1704,6 +1745,11 @@ body.mm-menu-open {
     background: rgba(255, 255, 255, .06);
     box-shadow: none;
     backdrop-filter: none;
+  }
+
+  .mm-nav-item.is-submenu-open>.mm-mega-menu,
+  .mm-nav-item.is-submenu-open>.mm-dropdown-menu {
+    display: grid;
   }
 
   .mm-mega-menu {
@@ -2065,4 +2111,58 @@ body.mm-menu-open {
 .mm-topbar p,
 .mm-footer p {
   font-size: 15px;
+}
+
+/* Readability for small labels, lists and supporting text. */
+.mm-page main li {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.mm-page .mm-kicker,
+.mm-mega-feature span,
+.mm-mega-services h4,
+.mm-mega-title h4,
+.mm-visual-label,
+.mm-compass span,
+.mm-process-grid article>b,
+.mm-inner-cta span {
+  font-size: 13px;
+}
+
+.mm-mega-services strong,
+.mm-dropdown-menu strong,
+.mm-feature-grid strong {
+  font-size: 16px;
+}
+
+.mm-mega-services small,
+.mm-dropdown-menu small,
+.mm-mega-title a,
+.mm-mega-visa-grid a,
+.mm-feature-grid span,
+.mm-country small {
+  font-size: 14px;
+}
+
+.mm-mega-visa-grid strong,
+.mm-text-link,
+.mm-footer h3,
+.mm-footer a {
+  font-size: 15px;
+}
+
+.mm-consult-card li {
+  font-size: 16px;
+}
+
+.mm-consult-card li span,
+.mm-home-company-grid>article>span,
+.mm-value-grid article>span,
+.mm-footer-bottom {
+  font-size: 14px;
+}
+
+.mm-home-company-focus small {
+  font-size: 16px;
 }

@@ -135,9 +135,10 @@ function mm_home_icon(string $name): string
                     <p>Explore destination-specific routes for travel, education, work, family and longer-term migration.</p>
                 </div>
                 <div class="mm-destination-grid">
+                    <?php $destination_files = ['UK' => 'UK.jpg', 'CA' => 'Canada.webp', 'AU' => 'Australia.jpg', 'NZ' => 'New-Zealand-scaled.avif', 'US' => 'USA.webp']; ?>
                     <?php foreach ($destinations as [$code, $country, $routes, $url, $color]) : ?>
                         <a class="mm-country" style="--country-accent:<?php echo esc_attr($color); ?>" href="<?php echo esc_url(home_url($url)); ?>">
-                            <?php $destination_image = mm_page_image_data(trim($url, '/'), 'mm_destination'); ?>
+                            <?php $destination_image = isset($destination_files[$code]) ? mm_media_by_filename($destination_files[$code], $country . ' visa and immigration guidance') : mm_page_image_data(trim($url, '/'), 'mm_destination'); ?>
                             <img src="<?php echo esc_url($destination_image['url']); ?>" alt="<?php echo esc_attr($destination_image['alt'] ?: $country); ?>" loading="lazy">
                             <span class="mm-country-code"><?php echo esc_html($code); ?></span>
                             <strong><?php echo esc_html($country); ?></strong>

@@ -534,7 +534,8 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
                     <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
                     <div class="mm-nav-item mm-has-mega">
                         <a href="<?php echo esc_url(home_url('/Visa/')); ?>" class="mm-nav-link">Visa</a>
-                        <div class="mm-mega-menu" aria-label="Services mega menu">
+                        <button class="mm-submenu-toggle" type="button" aria-expanded="false" aria-controls="mm-visa-submenu" data-submenu-toggle><span aria-hidden="true"></span><span class="screen-reader-text">Toggle Visa submenu</span></button>
+                        <div id="mm-visa-submenu" class="mm-mega-menu" aria-label="Services mega menu" data-submenu>
                             <div class="mm-mega-feature">
                                 <span>Visa categories</span>
                                 <h3>Choose the right visa category first.</h3>
@@ -562,7 +563,8 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
                     </div>
                     <div class="mm-nav-item mm-has-menu">
                         <a href="<?php echo esc_url(home_url('/destination/')); ?>" class="mm-nav-link">Destinations</a>
-                        <div class="mm-dropdown-menu" aria-label="Destinations menu">
+                        <button class="mm-submenu-toggle" type="button" aria-expanded="false" aria-controls="mm-destination-submenu" data-submenu-toggle><span aria-hidden="true"></span><span class="screen-reader-text">Toggle Destinations submenu</span></button>
+                        <div id="mm-destination-submenu" class="mm-dropdown-menu" aria-label="Destinations menu" data-submenu>
                             <?php foreach (mm_nav_destination_links() as [$label, $url, $description]) : ?>
                                 <a href="<?php echo esc_url(home_url($url)); ?>"><strong><?php echo esc_html($label); ?></strong><small><?php echo esc_html($description); ?></small></a>
                             <?php endforeach; ?>
@@ -570,7 +572,8 @@ function mm_render_primary_header(string $phone = MM_PHONE_URL, string $email = 
                     </div>
                     <div class="mm-nav-item mm-has-menu">
                         <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="mm-nav-link">Company</a>
-                        <div class="mm-dropdown-menu" aria-label="Company menu">
+                        <button class="mm-submenu-toggle" type="button" aria-expanded="false" aria-controls="mm-company-submenu" data-submenu-toggle><span aria-hidden="true"></span><span class="screen-reader-text">Toggle Company submenu</span></button>
+                        <div id="mm-company-submenu" class="mm-dropdown-menu" aria-label="Company menu" data-submenu>
                             <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><strong>About us</strong><small>Our approach and leadership</small></a>
                             <a href="<?php echo esc_url(home_url('/our-team/')); ?>"><strong>Our team</strong><small>Meet the people behind the work</small></a>
                             <a href="<?php echo esc_url(home_url('/immigration/')); ?>"><strong>Immigration</strong><small>International services and pathways</small></a>

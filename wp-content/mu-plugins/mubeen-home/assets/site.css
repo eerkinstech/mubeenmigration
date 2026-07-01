@@ -357,6 +357,38 @@ body.mm-inner-page {
     }
 }
 
+/* Larger small-copy typography across service, visa and company pages. */
+.mm-inner-page main li {
+    font-size: 17px;
+    line-height: 1.65
+}
+
+.mm-inner-page main .mm-service-facts span,
+.mm-inner-page main .mm-visa-list-grid span,
+.mm-inner-page main .mm-compact-visa-grid span,
+.mm-inner-page main .mm-about-metrics span,
+.mm-inner-page main .mm-post-meta,
+.mm-inner-page main .mm-post-navigation span,
+.mm-inner-page main .mm-check-grid b {
+    font-size: 14px
+}
+
+.mm-inner-page main .mm-gold-panel>span,
+.mm-inner-page main .mm-index-grid article>span,
+.mm-inner-page main .mm-contact-highlight>span {
+    font-size: 13px
+}
+
+.mm-inner-page main .mm-form-grid label {
+    font-size: 15px
+}
+
+.mm-inner-page main .mm-editor-content strong,
+.mm-inner-page main .mm-main-copy strong,
+.mm-inner-page main .mm-prose strong {
+    font-size: 18px
+}
+
 /* Structured company, policy, appointment and blog pages */
 .mm-leader-grid,
 .mm-team-lead-grid,
