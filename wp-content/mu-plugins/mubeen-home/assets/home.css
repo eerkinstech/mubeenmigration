@@ -630,7 +630,7 @@ body.mm-menu-open {
   align-items: center;
   gap: 9px;
   color: #e5e5e5;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -753,7 +753,7 @@ body.mm-menu-open {
 .mm-stats span {
   margin-top: 4px;
   color: var(--mm-muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .mm-section {

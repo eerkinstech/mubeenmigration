@@ -119,6 +119,30 @@ function mm_media_by_filename(string $filename, string $fallback_alt = ''): arra
     ];
 }
 
+function mm_destination_image_data(string $slug, string $label = ''): array
+{
+    $slug = sanitize_title(wp_basename(trim($slug, '/')));
+    $aliases = [
+        'united-kingdom' => 'uk',
+        'united-states' => 'usa',
+        'us' => 'usa',
+    ];
+    $slug = $aliases[$slug] ?? $slug;
+    $files = [
+        'uk' => 'UK.jpg',
+        'canada' => 'Canada.webp',
+        'australia' => 'Australia.jpg',
+        'new-zealand' => 'New-Zealand-scaled.avif',
+        'usa' => 'USA.webp',
+    ];
+    if (!isset($files[$slug])) {
+        return [];
+    }
+
+    $country = $label ?: ucwords(str_replace('-', ' ', $slug));
+    return mm_media_by_filename($files[$slug], $country . ' visa and immigration guidance');
+}
+
 function mm_render_frontend_site_icon(): void
 {
     $icon_id = (int) get_option('site_icon');
@@ -304,6 +328,13 @@ function mm_page_image_terms(string $slug = '', string $post_type = ''): array
 
 function mm_page_image_data(string $slug = '', string $post_type = ''): array
 {
+    if ('mm_destination' === $post_type) {
+        $destination_image = mm_destination_image_data($slug);
+        if ($destination_image) {
+            return $destination_image;
+        }
+    }
+
     $terms = mm_page_image_terms($slug, $post_type);
     $best = null;
     $best_score = 0;
