@@ -36,13 +36,29 @@ function mm_render_social_links(): void
     echo '<nav class="mm-social-links" aria-label="Social media">';
     foreach (mm_social_links() as $label => $url) {
         printf(
-            '<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="Mubeen Migration on %s">%s</a>',
+            '<a href="%s" target="_blank" rel="noopener noreferrer" aria-label="Mubeen Migration on %s" title="%s"><span class="mm-social-icon" aria-hidden="true">%s</span><span class="mm-social-label">%s</span></a>',
             esc_url($url),
             esc_attr($label),
+            esc_attr($label),
+            mm_social_icon_svg($label), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             esc_html($label)
         );
     }
     echo '</nav>';
+}
+
+function mm_social_icon_svg(string $label): string
+{
+    $paths = [
+        'Facebook' => '<path d="M14 8.5h3V5h-3c-3.1 0-5 1.9-5 5v2H6v3.5h3V23h4v-7.5h3.2l.8-3.5h-4v-1.7c0-1.2.4-1.8 1-1.8Z"/>',
+        'Instagram' => '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/>',
+        'LinkedIn' => '<path d="M5 8.5h4V21H5V8.5Zm2-5A2.3 2.3 0 1 1 7 8a2.3 2.3 0 0 1 0-4.5ZM11 8.5h3.8v1.7h.1c.6-1 1.9-2.2 4-2.2 4.2 0 5 2.7 5 6.4V21h-4v-5.8c0-1.4 0-3.2-2.1-3.2s-2.4 1.5-2.4 3.1V21h-4V8.5Z" transform="scale(.88)"/>',
+        'YouTube' => '<path d="M22 8.1a3 3 0 0 0-2.1-2.2C18 5.4 12 5.4 12 5.4s-6 0-7.9.5A3 3 0 0 0 2 8.1 31 31 0 0 0 1.5 12 31 31 0 0 0 2 15.9a3 3 0 0 0 2.1 2.2c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.2 31 31 0 0 0 .5-3.9 31 31 0 0 0-.5-3.9ZM10 15.5v-7l6 3.5-6 3.5Z"/>',
+        'TikTok' => '<path d="M15 3c.4 2.5 1.8 4 4.5 4.2v3.4a9 9 0 0 1-4.5-1.3v6.4a6.4 6.4 0 1 1-5.5-6.3v3.5a3 3 0 1 0 2 2.8V3H15Z"/>',
+        'X' => '<path d="M4 4h4.7l4.1 5.5L17.6 4H20l-6.1 7.1L21 20h-4.7l-4.5-5.9L6.7 20H4.2l6.5-7.6L4 4Zm3.5 2 10.1 12h1L8.5 6h-1Z"/>',
+    ];
+    $path = $paths[$label] ?? '<circle cx="12" cy="12" r="8"/>';
+    return '<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill="currentColor">' . $path . '</svg>';
 }
 
 function mm_url(string $path): string
